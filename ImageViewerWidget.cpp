@@ -35,7 +35,6 @@ ImageViewerWidget::ImageViewerWidget(QWidget *parent)
 
 ImageViewerWidget::~ImageViewerWidget() {}
 
-#if 1
 
 void ImageViewerWidget::SetViewOffset(double x, double y) {
     view_offset_x_ = x;
@@ -316,4 +315,4 @@ void ImageViewerWidget::finishDragging(QPoint pos) {
     setCursor(normal_cursor_);
 }
 
-#endif
+

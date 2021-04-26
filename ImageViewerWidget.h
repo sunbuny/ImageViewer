@@ -27,7 +27,6 @@ public:
 
     ~ImageViewerWidget() override;
 
-#if 1
     // Sets the image displayed by the widget.
     void SetImage(const QImage& image) {
         bool no_image_before = qimage_.isNull();
@@ -122,7 +121,6 @@ private:
     std::vector<SubpixelText> texts_;
 
     QImage qimage_;
-#endif
 };
 
 
