@@ -14,13 +14,19 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Widgets DataVisualization REQUIRED)
 
 add_library(ImageViewer
         ImageViewerWidget.cpp)
 target_include_directories(ImageViewer PUBLIC
         Include)
 target_link_libraries(ImageViewer Qt5::Widgets)
+
+add_library(PointCloudViewer
+        PointCloudViewerWidget.cpp)
+target_include_directories(PointCloudViewer PUBLIC
+        Include)
+target_link_libraries(PointCloudViewer Qt5::Widgets)
 
 add_executable(main main.cpp ImageViewerWidget.cpp
         Resources/shareddata.qrc
@@ -30,3 +36,9 @@ target_link_libraries(main
         Qt5::Widgets
         ImageViewer
         )
+
+add_executable(Scatter Scatter.cpp     scatterdatamodifier.cpp    )
+
+target_link_libraries(Scatter
+        Qt5::Widgets
+        Qt5::DataVisualization)
